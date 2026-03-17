@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import { Send } from 'lucide-react';
 
 const CavindhiEssence = () => {
-  const [selectedProduct, setSelectedProduct] = useState(null);
-
   const products = [
     {
       id: 1,
@@ -17,7 +15,6 @@ const CavindhiEssence = () => {
       performance: 'Longevity: ±12 jam | Sillage: Moderate-Strong',
       tagline: '"Be Gentle, Be Unforgettable"',
       price: 90000,
-      image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=500&fit=crop',
     },
     {
       id: 2,
@@ -29,7 +26,6 @@ const CavindhiEssence = () => {
       performance: 'Longevity: ±12 jam | Sillage: Soft-Moderate',
       tagline: '"Be Gentle, Be Unforgettable"',
       price: 90000,
-      image: 'https://images.unsplash.com/photo-1585286307820-6d7b0b5e3451?w=400&h=500&fit=crop',
     },
     {
       id: 3,
@@ -41,7 +37,6 @@ const CavindhiEssence = () => {
       performance: 'Longevity: ±12 jam | Sillage: Moderate',
       tagline: '"Be Gentle, Be Unforgettable"',
       price: 90000,
-      image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=500&fit=crop',
     },
   ];
 
@@ -54,21 +49,18 @@ const CavindhiEssence = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-stone-50 to-stone-100">
-      {/* Header */}
       <header className="fixed top-0 w-full bg-white bg-opacity-95 backdrop-blur-sm z-50 border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div className="text-2xl font-light tracking-widest text-stone-800">
             CAVINDHI<span className="font-extralight text-stone-400"> essence</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm text-stone-600 font-light">
-            <a href="#about" className="hover:text-stone-900 transition">About</a>
             <a href="#products" className="hover:text-stone-900 transition">Products</a>
             <a href="#contact" className="hover:text-stone-900 transition">Contact</a>
           </div>
         </div>
       </header>
 
-      {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-light text-stone-900 mb-6 tracking-tight">
@@ -84,7 +76,6 @@ const CavindhiEssence = () => {
         </div>
       </section>
 
-      {/* Products Section */}
       <section id="products" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-light text-center text-stone-900 mb-4 tracking-wide">
@@ -96,22 +87,15 @@ const CavindhiEssence = () => {
 
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
             {products.map((product) => (
-              <div
-                key={product.id}
-                className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100"
-              >
-                {/* Product Image */}
+              <div key={product.id} className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100">
                 <div className="relative h-80 bg-gradient-to-b from-stone-50 to-stone-100 overflow-hidden flex items-center justify-center">
                   <div className="text-6xl">{product.icon}</div>
                 </div>
 
-                {/* Product Info */}
                 <div className="p-8">
-                  <div className="mb-3">
-                    <p className="text-xs text-stone-500 uppercase tracking-widest font-light">
-                      {product.category}
-                    </p>
-                  </div>
+                  <p className="text-xs text-stone-500 uppercase tracking-widest font-light mb-3">
+                    {product.category}
+                  </p>
                   
                   <h3 className="text-2xl font-light text-stone-900 mb-2 tracking-wide">
                     {product.name}
@@ -138,16 +122,15 @@ const CavindhiEssence = () => {
                     {product.tagline}
                   </p>
 
-                  {/* Price & CTA */}
                   <div className="space-y-3">
                     <div className="text-3xl font-light text-stone-900">
                       Rp {product.price.toLocaleString('id-ID')}
                     </div>
                     <button
                       onClick={() => handleWhatsApp(product.name)}
-                      className="w-full bg-stone-900 text-white py-3 rounded-lg font-light tracking-wide hover:bg-stone-800 transition-all duration-300 flex items-center justify-center gap-2 group"
+                      className="w-full bg-stone-900 text-white py-3 rounded-lg font-light tracking-wide hover:bg-stone-800 transition-all duration-300 flex items-center justify-center gap-2"
                     >
-                      <Send size={18} className="group-hover:translate-x-1 transition" />
+                      <Send size={18} />
                       Pesan via WhatsApp
                     </button>
                   </div>
@@ -158,7 +141,6 @@ const CavindhiEssence = () => {
         </div>
       </section>
 
-      {/* Why Choose Us */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-light text-center text-stone-900 mb-12 tracking-wide">
@@ -191,7 +173,6 @@ const CavindhiEssence = () => {
         </div>
       </section>
 
-      {/* Footer */}
       <footer id="contact" className="bg-stone-900 text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-2xl font-light tracking-widest mb-4">
