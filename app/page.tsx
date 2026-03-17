@@ -1,19 +1,17 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Send } from 'lucide-react';
 
-const CavindhiEssence = () => {
+export default function Home() {
   const products = [
     {
       id: 1,
       name: 'VERELUNE',
       category: 'Night Perfume | Pria',
       icon: '🌙',
-      description: 'Parfum pria malam dengan aroma sensual & maskulin. Terinspirasi dari kata Lune (bulan), menciptakan ketenangan malam dengan daya tarik yang dalam.',
-      notes: 'Lavender • Mint → Vanilla • Benzoin → Honey • Tonka • Tobacco',
-      performance: 'Longevity: ±12 jam | Sillage: Moderate-Strong',
-      tagline: '"Be Gentle, Be Unforgettable"',
+      description: 'Parfum pria malam dengan aroma sensual & maskulin.',
+      notes: 'Lavender • Mint → Vanilla • Benzoin → Honey',
       price: 90000,
     },
     {
@@ -21,10 +19,8 @@ const CavindhiEssence = () => {
       name: 'ROSÉLAT',
       category: 'Daily Perfume | Unisex',
       icon: '🌹',
-      description: 'Parfum unisex manis dengan karakter soft dan menenangkan. Perpaduan floral dan fruity yang nyaman untuk penggunaan sehari-hari.',
+      description: 'Parfum unisex manis dengan karakter soft.',
       notes: 'Candy Apple → Rose Floral → Vanilla Cream',
-      performance: 'Longevity: ±12 jam | Sillage: Soft-Moderate',
-      tagline: '"Be Gentle, Be Unforgettable"',
       price: 90000,
     },
     {
@@ -32,108 +28,55 @@ const CavindhiEssence = () => {
       name: 'PEACHAVE',
       category: 'Cheerful Scent | Unisex',
       icon: '🍑',
-      description: 'Parfum unisex fruity dengan karakter manis, ceria, dan playful. Untuk aktivitas santai dengan suasana hati penuh warna.',
-      notes: 'Berry Pear • Peach → Bubblegum → Vanilla • Musk',
-      performance: 'Longevity: ±12 jam | Sillage: Moderate',
-      tagline: '"Be Gentle, Be Unforgettable"',
+      description: 'Parfum unisex fruity dengan karakter manis.',
+      notes: 'Berry Pear • Peach → Bubblegum → Vanilla',
       price: 90000,
     },
   ];
 
-  const handleWhatsApp = (productName) => {
-    const message = `Halo! Saya tertarik membeli ${productName} dari Cavindhi Essence. Harga Rp90.000. Berapa cara pembayarannya?`;
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/6281917977687?text=${encodedMessage}`;
-    window.open(whatsappURL, '_blank');
+  const handleWhatsApp = (name) => {
+    const msg = `Halo! Saya tertarik membeli ${name} dari Cavindhi Essence. Harga Rp90.000. Berapa cara pembayarannya?`;
+    window.open(`https://wa.me/6281917977687?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-stone-50 to-stone-100">
-      <header className="fixed top-0 w-full bg-white bg-opacity-95 backdrop-blur-sm z-50 border-b border-stone-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <header className="fixed top-0 w-full bg-white bg-opacity-95 z-50 border-b border-stone-200">
+        <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="text-2xl font-light tracking-widest text-stone-800">
-            CAVINDHI<span className="font-extralight text-stone-400"> essence</span>
-          </div>
-          <div className="hidden md:flex items-center gap-8 text-sm text-stone-600 font-light">
-            <a href="#products" className="hover:text-stone-900 transition">Products</a>
-            <a href="#contact" className="hover:text-stone-900 transition">Contact</a>
+            CAVINDHI<span className="text-stone-400"> essence</span>
           </div>
         </div>
       </header>
 
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-light text-stone-900 mb-6 tracking-tight">
-            Aroma yang Meninggalkan Kesan
-          </h1>
-          <p className="text-lg text-stone-600 font-light mb-8">
-            Koleksi parfum premium dengan formula Extrait de Parfum yang tahan lama dan mewah
-          </p>
-          <div className="h-1 w-24 bg-gradient-to-r from-stone-300 to-stone-100 mx-auto mb-8"></div>
-          <p className="text-stone-500 font-light italic">
-            "Be Gentle, Be Unforgettable"
-          </p>
-        </div>
+      <section className="pt-32 pb-20 px-4 text-center">
+        <h1 className="text-5xl font-light text-stone-900 mb-6">Aroma yang Meninggalkan Kesan</h1>
+        <p className="text-lg text-stone-600 font-light mb-8">Koleksi parfum premium Extrait de Parfum</p>
+        <p className="text-stone-500 italic">"Be Gentle, Be Unforgettable"</p>
       </section>
 
-      <section id="products" className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-light text-center text-stone-900 mb-4 tracking-wide">
-            Koleksi Parfum
-          </h2>
-          <p className="text-center text-stone-600 font-light mb-16">
-            Temukan aroma yang sempurna untuk setiap momen
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-            {products.map((product) => (
-              <div key={product.id} className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100">
-                <div className="relative h-80 bg-gradient-to-b from-stone-50 to-stone-100 overflow-hidden flex items-center justify-center">
-                  <div className="text-6xl">{product.icon}</div>
+          <h2 className="text-4xl font-light text-center text-stone-900 mb-16">Koleksi Parfum</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {products.map((p) => (
+              <div key={p.id} className="bg-white rounded-lg shadow-sm border border-stone-100 overflow-hidden">
+                <div className="h-80 bg-gradient-to-b from-stone-50 to-stone-100 flex items-center justify-center text-6xl">
+                  {p.icon}
                 </div>
-
                 <div className="p-8">
-                  <p className="text-xs text-stone-500 uppercase tracking-widest font-light mb-3">
-                    {product.category}
-                  </p>
-                  
-                  <h3 className="text-2xl font-light text-stone-900 mb-2 tracking-wide">
-                    {product.name}
-                  </h3>
-
-                  <p className="text-stone-600 font-light text-sm mb-4 leading-relaxed">
-                    {product.description}
-                  </p>
-
-                  <div className="mb-4 pb-4 border-t border-stone-100">
-                    <p className="text-xs text-stone-500 uppercase tracking-widest font-light mt-4 mb-1">
-                      Aroma Notes
-                    </p>
-                    <p className="text-sm text-stone-700 font-light">
-                      {product.notes}
-                    </p>
+                  <p className="text-xs text-stone-500 uppercase mb-3">{p.category}</p>
+                  <h3 className="text-2xl font-light text-stone-900 mb-2">{p.name}</h3>
+                  <p className="text-sm text-stone-600 mb-4">{p.description}</p>
+                  <div className="border-t border-stone-100 pt-4 mb-4">
+                    <p className="text-xs text-stone-500 uppercase mb-1">Aroma Notes</p>
+                    <p className="text-sm text-stone-700">{p.notes}</p>
                   </div>
-
-                  <p className="text-xs text-stone-500 font-light mb-4">
-                    {product.performance}
-                  </p>
-
-                  <p className="text-stone-700 font-light italic text-sm mb-6">
-                    {product.tagline}
-                  </p>
-
-                  <div className="space-y-3">
-                    <div className="text-3xl font-light text-stone-900">
-                      Rp {product.price.toLocaleString('id-ID')}
-                    </div>
-                    <button
-                      onClick={() => handleWhatsApp(product.name)}
-                      className="w-full bg-stone-900 text-white py-3 rounded-lg font-light tracking-wide hover:bg-stone-800 transition-all duration-300 flex items-center justify-center gap-2"
-                    >
-                      <Send size={18} />
-                      Pesan via WhatsApp
-                    </button>
-                  </div>
+                  <div className="text-3xl font-light text-stone-900 mb-3">Rp {p.price.toLocaleString('id-ID')}</div>
+                  <button onClick={() => handleWhatsApp(p.name)} className="w-full bg-stone-900 text-white py-3 rounded-lg font-light hover:bg-stone-800 flex items-center justify-center gap-2">
+                    <Send size={18} />
+                    Pesan via WhatsApp
+                  </button>
                 </div>
               </div>
             ))}
@@ -141,65 +84,39 @@ const CavindhiEssence = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-light text-center text-stone-900 mb-12 tracking-wide">
-            Mengapa Cavindhi Essence?
-          </h2>
-          
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-light text-stone-900 mb-12">Mengapa Cavindhi Essence?</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
+            <div>
               <div className="text-4xl mb-4">✨</div>
-              <h3 className="text-lg font-light text-stone-900 mb-3">Extrait de Parfum</h3>
-              <p className="text-stone-600 font-light text-sm">
-                Konsentrasi wewangian tertinggi untuk ketahanan hingga 12 jam
-              </p>
+              <h3 className="text-lg font-light mb-3">Extrait de Parfum</h3>
+              <p className="text-sm text-stone-600">Konsentrasi tertinggi, ketahanan hingga 12 jam</p>
             </div>
-            <div className="text-center">
+            <div>
               <div className="text-4xl mb-4">🎀</div>
-              <h3 className="text-lg font-light text-stone-900 mb-3">Premium Quality</h3>
-              <p className="text-stone-600 font-light text-sm">
-                Formula berkualitas tinggi dengan bahan pilihan terbaik
-              </p>
+              <h3 className="text-lg font-light mb-3">Premium Quality</h3>
+              <p className="text-sm text-stone-600">Formula berkualitas dengan bahan terbaik</p>
             </div>
-            <div className="text-center">
+            <div>
               <div className="text-4xl mb-4">💫</div>
-              <h3 className="text-lg font-light text-stone-900 mb-3">Unik & Elegan</h3>
-              <p className="text-stone-600 font-light text-sm">
-                Aroma signature yang meninggalkan kesan mendalam
-              </p>
+              <h3 className="text-lg font-light mb-3">Unik & Elegan</h3>
+              <p className="text-sm text-stone-600">Aroma signature yang berkesan</p>
             </div>
           </div>
         </div>
       </section>
 
-      <footer id="contact" className="bg-stone-900 text-white py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-2xl font-light tracking-widest mb-4">
-            CAVINDHI<span className="font-extralight text-stone-400"> essence</span>
-          </h3>
-          <p className="text-stone-400 font-light mb-6">
-            "Be Gentle, Be Unforgettable"
-          </p>
-          <div className="flex justify-center gap-8 mb-8">
-            
-              href="https://wa.me/6281917977687"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-stone-300 transition font-light"
-            >
-              WhatsApp: 0819-1797-7687
-            </a>
-          </div>
-          <div className="border-t border-stone-700 pt-6">
-            <p className="text-stone-500 font-light text-sm">
-              © 2024 Cavindhi Essence. All rights reserved.
-            </p>
-          </div>
+      <footer className="bg-stone-900 text-white py-12 px-4 text-center">
+        <h3 className="text-2xl font-light tracking-widest mb-4">CAVINDHI<span className="text-stone-400"> essence</span></h3>
+        <p className="text-stone-400 mb-6">"Be Gentle, Be Unforgettable"</p>
+        <a href="https://wa.me/6281917977687" target="_blank" rel="noopener noreferrer" className="text-white hover:text-stone-300">
+          WhatsApp: 0819-1797-7687
+        </a>
+        <div className="border-t border-stone-700 mt-6 pt-6">
+          <p className="text-stone-500 text-sm">© 2024 Cavindhi Essence. All rights reserved.</p>
         </div>
       </footer>
     </div>
   );
-};
-
-export default CavindhiEssence;
+      }
